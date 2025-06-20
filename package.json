@@ -1,0 +1,19 @@
+{
+  "name": "pen-and-pixel-project",
+  "version": "1.0.0",
+  "description": "Pen and Pixel is a blog web app created for the purpose of learning node.js, express.js, and ejs.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francis Ge Amoncio",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "multer": "^2.0.0",
+    "sanitize-html": "^2.17.0",
+    "sweetalert2": "^11.6.13"
+  }
+}

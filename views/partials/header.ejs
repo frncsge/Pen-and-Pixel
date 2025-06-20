@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/create-post-modal.css">
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/blog-post.css">
+  <link rel="stylesheet" href="/styles/header-footer.css">
+  <link rel="stylesheet" href="/styles/landingpage.css">
+  <link rel="stylesheet" href="/styles/about.css">
+  <link rel="stylesheet" href="/styles/light-box.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Pen & Pixel</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <section id="logo-container">
+        <img src="/Logo/Pen and Pixel Logo.png" alt="Pen & Pixel logo" style="width: 150px;">
+      </section>
+      <section id="nav-items-container">
+        <ul>
+
+          <% if (locals.isLandingPage) { %>
+           <li class="home-abt-btn"><a href="/">Home</a></li>
+           <li class="home-abt-btn"><a href="/about">About</a></li>
+           <li><button id="get-started-header-btn" disabled>Create Blog</button></li>
+          <% } else {%> 
+            <li class="home-abt-btn"><a href="/home">Home</a></li>
+            <li class="home-abt-btn"><a href="/about">About</a></li>
+            <li><button id="create-blog-btn" >Create Blog</button></li>
+          <% } %> 
+           
+          <li class="container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </header>
+
+  <div id="drop-down-nav-container">
+    <% if (locals.isLandingPage) { %>
+      <div class="drop-down-li"><a href="/">Home</a></div>
+    <% } else {%> 
+      <div class="drop-down-li"><a href="/home">Home</a></div>
+    <% } %> 
+
+    <div class="drop-down-li"><a href="/about">About</a></div></a>
+  </div>
+  <main>

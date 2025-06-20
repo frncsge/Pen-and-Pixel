@@ -1,0 +1,137 @@
+<%- include("partials/header.ejs") %>
+
+<div id="article-wrapper">
+  <% if(blogPostArr.length === 0) { %>
+  <article class="blog-post">
+    <section class="blog-post-header">
+      <div class="header-date-container">
+        <h1 class="blog-post-header-title">
+          Hi there, welcome to Pen & Pixel!
+        </h1>
+        <p class="blog-post-header-date">Posted on May 31, 2025</p>
+      </div>
+    </section>
+    <section class="blog-post-description">
+      Pen and Pixel is a simple blog web app I built to help me learn Node.js,
+      Express, and EJS. It’s nothing fancy—just a way for me to practice dynamic
+      page rendering and get more comfortable with backend development. This is
+      a sample blog post layout, and it will disappear once you create your own.
+      Go ahead and try it out! <br />
+      <br />
+
+      -Creator
+    </section>
+    <section class="read-more-btn-container">
+      <p class="read-more-btn">Read more</p>
+    </section>
+    <section class="blog-post-img-section">
+      <img
+        class="blog-post-img"
+        src="/images/cat gamer.jpg"
+        alt="Blog Photo"
+        onclick="zoomImage(this)"
+      />
+    </section>
+  </article>
+  <% } else { %> <% blogPostArr.forEach((post) => { %>
+  <article class="blog-post">
+    <section class="blog-post-header">
+      <div class="header-date-container">
+        <h1 class="blog-post-header-title"><%= post.title %></h1>
+        <p class="blog-post-header-date"><%= post.date %></p>
+      </div>
+      <div class="edit-delete-container">
+        <button class="edit-btn" data-id="<%= post.id %>">
+          <svg
+            viewBox="0 0 24 24"
+            width="20px"
+            height="20px"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke=""
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M20.8477 1.87868C19.6761 0.707109 17.7766 0.707105 16.605 1.87868L2.44744 16.0363C2.02864 16.4551 1.74317 16.9885 1.62702 17.5692L1.03995 20.5046C0.760062 21.904 1.9939 23.1379 3.39334 22.858L6.32868 22.2709C6.90945 22.1548 7.44285 21.8693 7.86165 21.4505L22.0192 7.29289C23.1908 6.12132 23.1908 4.22183 22.0192 3.05025L20.8477 1.87868ZM18.0192 3.29289C18.4098 2.90237 19.0429 2.90237 19.4335 3.29289L20.605 4.46447C20.9956 4.85499 20.9956 5.48815 20.605 5.87868L17.9334 8.55027L15.3477 5.96448L18.0192 3.29289ZM13.9334 7.3787L3.86165 17.4505C3.72205 17.5901 3.6269 17.7679 3.58818 17.9615L3.00111 20.8968L5.93645 20.3097C6.13004 20.271 6.30784 20.1759 6.44744 20.0363L16.5192 9.96448L13.9334 7.3787Z"
+                fill="#bababa"
+              ></path>
+            </g>
+          </svg>
+        </button>
+        <button class="delete-btn" data-id="<%= post.id %>">
+          <svg
+            viewBox="0 0 24 24"
+            width="20px"
+            height="20px"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="#ED2C2C"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M20.5001 6H3.5"
+                stroke="#ED2C2C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              ></path>
+              <path
+                d="M9.5 11L10 16"
+                stroke="#ED2C2C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              ></path>
+              <path
+                d="M14.5 11L14 16"
+                stroke="#ED2C2C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              ></path>
+              <path
+                d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6"
+                stroke="#ED2C2C"
+                stroke-width="1.5"
+              ></path>
+              <path
+                d="M18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5M18.8334 8.5L18.6334 11.5"
+                stroke="#ED2C2C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              ></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </section>
+    <section class="blog-post-description"><%- post.content %></section>
+    <section class="read-more-btn-container">
+      <p class="read-more-btn">Read more</p>
+    </section>
+    <% if(post.img !== '') { %>
+    <section class="blog-post-img-section">
+      <img
+        class="blog-post-img"
+        src="<%= post.img %>"
+        alt="Blog Photo"
+        onclick="zoomImage(this)"
+      />
+    </section>
+    <% } %>
+  </article>
+  <% }) %> <% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>
