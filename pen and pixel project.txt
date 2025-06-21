@@ -25,5 +25,4 @@ import path from "path";
 it is recommended to use the npm called sanitize-html when handling user input from rich text editors like quill
 
 to do:
--use sweetAlert when users refresh the page
 -when user want to edit a blog post, make sure that swal is gonna be on when they exit the modal (if they made any changes) - done
