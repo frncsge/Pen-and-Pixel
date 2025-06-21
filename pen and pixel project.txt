@@ -1,0 +1,28 @@
+use quill to have a text editor.
+one image nalang instead of 5 max.
+create an array to store posted blog posts.
+use the multiple attribute for your image input for mobile users
+use multer middleware to handle file or photo uploads
+
+refernce to deleting the images after every session automatically (or when nodejs server restarts):
+import fs from "fs";
+import path from "path";
+
+// const uploadsDir = path.join(__dirname, "public/uploads");
+
+// fs.readdir(uploadsDir, (err, files) => {
+//   if (err) {
+//     console.error("Error reading uploads folder:", err);
+//     return;
+//   }
+//   files.forEach(file => {
+//     fs.unlink(path.join(uploadsDir, file), (err) => {
+//       if (err) console.error("Error deleting file:", file, err);
+//     });
+//   });
+// });
+
+it is recommended to use the npm called sanitize-html when handling user input from rich text editors like quill
+
+to do:
+-when user want to edit a blog post, make sure that swal is gonna be on when they exit the modal (if they made any changes) - done

@@ -190,6 +190,14 @@ article_wrapper.addEventListener("click", (e) => {
             saveBtn.disabled = true;
           }
         });
+
+        editQuill.on("text-change", () => {
+          if (isChanged()) {
+            saveBtn.disabled = false;
+          } else {
+            saveBtn.disabled = true;
+          }
+        });
       });
   }
 });
